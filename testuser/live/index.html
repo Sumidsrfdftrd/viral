@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>victim's live</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Hide scrollbars */
+	    background-color: #100721;
+        }
+	.live-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    border: 1px solid #36454F;
+    height: 90vh;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 1vh;
+    margin-bottom: 9vh;
+}
+.chat-messages {
+    height: 200px; /* Adjust height according to your design */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+.message {
+    margin-bottom: 10px;
+     margin-left: 5px;
+}
+.sender {
+font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.message-text{
+ font-size: 12px;
+border-left: 0.5px solid #00FF00;
+ color: #fff;
+ opacity: 0.7;
+ margin-top: 0;
+ margin-bottom: 0;
+}
+.sender.nishant {
+    color: #00A9FF; /* Example color for Nishant */
+}
+.sender.ishant {
+    color: #00FFAB; /* Example color for Ishant */
+}
+.sender.isha {
+    color: #C58940; /* Example color for Ishant */
+}
+.sender.sumit {
+    color: #FFEA20; /* Example color for Ishant */
+}
+.sender.neha {
+    color: #A7727D; /* Example color for Ishant */
+}
+.sender.pankaj {
+    color: #F9B572; /* Example color for Ishant */
+}
+.sender.anonymous {
+    color: #FF6969; /* Example color for Ishant */
+}
+.sender.sender_name {
+    color: green; /* Example color for Ishant */
+}
+.sender.joined {
+    color: #00FF00;
+}
+.sender.left {
+    color: red;
+}
+/*
+#FF6969
+#00A9FF
+#F9B572
+#A7727D
+#AACB73
+#FFEA20
+#C58940
+#00FFAB
+*/
+.video-line {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    height: 50vh;
+    width: 98%;
+    border: 1px solid #36454F;
+    overflow: hidden; /* Prevent potential overflow */
+}
+.viewers-count {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 4px 10px;
+    border-radius: 5px;
+    align-items: center;
+    color: #000;
+}
+.icon {
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    margin-left: 5px;
+}
+#video-background {
+    width: 100%;
+    max-width: 100%; /* Set maximum width to 100% */
+    max-height: 100%; /* Set maximum height to 100% */
+    object-fit: cover;
+    z-index: -1;
+}
+.lower-container {
+    display: block;
+    width: 100%;
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: none;
+    border-top: 1px solid #36454F;
+    position: relative;
+    background-color: #100721;
+    max-height: calc(90vh - 50vh);
+    flex-grow: 0; /* Allow the lower-container to take up remaining space */
+}
+.heading {
+    position: sticky;
+    top: 0;
+    background-color: #100721;
+    color: #00FF00;
+    padding: 10px;
+    font-size: 12px;
+    z-index: 1; /* Ensure it stays above other elements */
+}
+.message-input {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1; /* Ensure it stays above other elements */
+}
+.message-input input {
+    flex: 1;
+    padding: 8px;
+    background-color: #100721;
+    border: 1px solid grey;
+    border-right: none;
+    border-bottom: none;
+    color: #fff;
+    border-left: none;
+    z-index: 1;
+}
+.message-input button {
+    padding: 8px 15px;
+    background-color: rgba(34.5, 24.8, 50.2, 1);
+    color: #fff;
+    border: 1px solid grey;
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+    cursor: pointer;
+    z-index: 1;
+}
+.toggle-buttons {
+    display: flex;
+    width: 98%;
+    justify-content: right;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+.toggle-buttons button {
+     margin-left: 1px;/* Optional: Add some spacing between buttons */
+    color: #88AB8E;
+    background-color: #191919;
+    border: none;
+    border-radius: 3px 3px 0 0;
+}
+    .my-button{
+      position: absolute;
+      left: 2%;
+      color: #fff;
+    }
+    .live-images-line {
+      display: none;
+      flex-wrap: wrap;
+      overflow-y: auto; /* Enable vertical scrolling */
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      justify-content: center;
+    }
+    .live-image {
+      width: 50px; /* Adjust the width based on the aspect ratio */
+      height: auto; /* Maintain the aspect ratio of the image */
+      margin: 2px; /* Add margin between images */
+      border: none;
+    }
+    .developer-info {
+            display: block;
+	    color: #00FF00;
+            font-family: "Courier New", monospace;
+	    text-align: center;
+        }
+    .live-chat {
+            display: none;
+                width: 100%;
+                font-family: "Courier New", monospace;
+        }
+	.container img {
+	    position: absolute;
+	    top: 0;
+	    left: 20px;
+            animation: fade 2s infinite;
+            animation-timing-function: ease-in-out;
+            opacity: 0; /* Start with the image hidden */
+            width: 80px; /* Adjust the width of the icon as needed */
+            height: 70px; /* Adjust the height of the icon as needed */
+            /* Add any other styles you want for the icon */
+        }
+      @keyframes fade {
+        0% {
+            opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+           opacity: 1;
+        }
+     }
+         #views {
+
+        }
+	.stop{
+	     display: none;
+             justify-content: center;
+	     text-align: center;
+	}
+	 h2 {
+           color: #d0bdf4;
+           font-family: 'Courier New', monospace;
+           font-weight: bold;
+           font-size: 20px;
+             line-height: 0.5;
+         }
+       .loading-circle-container {
+            position: relative;
+            display: flex;
+            flex-direction: column; /* Arrange children vertically */
+            align-items: center;  /* Center vertically */
+            justify-content: center;  /* Center horizontally */
+        }
+        .loading-circle {
+            margin-top: 15px;
+            align-items: center;
+            border: 4px solid #3498db;  /* This is the color of the loading circle */
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            display: none;
+            animation: rotateLoading 1s linear infinite; /* CSS animation for rotation */
+        }
+
+        @keyframes rotateLoading {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        #error-message {
+            color: green; /* Red color for error message */
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 12px;
+        }
+.form-container button {
+            padding: 6px;
+            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%); /* Use the converted RGBA value or adjust as needed */
+            color: #fff;
+            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+            text-align: center;
+            margin-top: 10px;
+            width: 40%;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+                box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+                transform: translateY(-2px);
+        }
+        .form-container button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+        .form-container button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+.form-container {
+            display: flex;
+            color: green;
+            font-size: 14px;
+            text-align: left;
+	    align-items: center;
+            flex-direction: column;
+        }
+        .form-container input {
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 12px;
+            color: #fff;
+	    width: 80%;
+            background-color: transparent;
+            border: 1px solid green;
+            border-radius: 5px;
+        }
+#timer {
+    font-size: 24px;
+    font-family: 'Courier New', monospace;
+}
+.autoWrite{
+    color: #00FF00;
+    font-size: 24px;
+}
+#countdown {
+    color: red;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+.popup {
+    display: none;
+    text-align: center;
+    width: 60px;
+    height: 40px;
+    z-index: 444;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    position: fixed;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    bottom: 40px;
+    left: 40%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.glowing-border:before {
+    /* Add your glowing border styles here */
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 0.5px);
+    height: calc(100% + 0.5px);
+    animation: glowing-border-animation 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+@keyframes glowing-border-animation {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+.glowing-border:after {
+    /* Add your glowing border styles here */
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+h4 {
+    color: #d0bdf4;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 20px;
+}
+.autoWrite{
+    color: #00FF00;
+    font-size: 20px;
+}     
+    </style>
+</head>
+<body>    
+    <div class="container"> <img src="https://svgshare.com/i/13Kh.svg" alt="Live"></div>
+  <div class="live-container">
+    <div class="video-line">
+      <div class="viewers-count">
+        <span id="totalViewers">3</span>
+        <img src="https://svgshare.com/i/13Lw.svg" alt="Icon" class="icon">
+      </div>
+      <video id="video-background" autoplay playsinline muted></video>
+    </div>
+    <div class="toggle-buttons">   
+         <button class="my-button" onclick="goBack()">Back</button>
+         <button id="togglestop">Stop Live</button>
+         <button id="toggleImagesButton">Live Images</button>
+         <button id="toggleLiveChat">Live Chat</button>
+         <button id="toggleInfoButton">Info</button>
+    </div>
+ <script>
+    function goBack() {
+      window.history.back();
+    }
+    function updateViewerCount() {
+    // Generate a random number between 2 and 4
+       const randomViewerCount = Math.floor(Math.random() * (4 - 2 + 1)) + 3;
+       document.getElementById('totalViewers').innerText = randomViewerCount;
+    }
+    setInterval(updateViewerCount, 5000);
+  </script>
+  <div class="lower-container" id="live-messages">
+    <!-- Images Line -->
+    <div class="live-images-line">
+      <!-- Add multiple live images here -->
+      <img class="live-image" src="" alt="Live Image">
+      <img class="live-image" src="" alt="Live Image">
+      <!-- Add as many images as needed -->
+    </div>
+    <div class="developer-info">
+	    <div class="autoWrite" data-text="Going viral in:"></div>
+         <h2 id="timer" class="fadeIn"><span id="countdown">45:00</span></h2>
+
+    <!-- Developer Info Content -->
+      <p>Live Since: 2 days, 04:30:21</p>
+      <p>@username</p>
+      <p>Name: victim</p>
+      <p>Age: adult</p>
+      <p>Sex: Female</p>
+      <p>Profession: Prostitute</p>
+    <!-- Add more developer info as needed -->
+    </div>
+    <div class="live-chat">
+	    <div class="heading">*/</br>
+	                <span>Users Online:</span>
+	    </div>
+            <div id="messages">
+        <!-- Messages will be loaded here -->
+            </div>
+         <div id="chat-messages">
+            <!-- Messages will be loaded here -->
+         </div>
+        <div class="popup glowing-border" id="popup" onclick="scrollToBottom()">
+             New
+        </div>
+        <div class="message-input">
+        <input type="text" id="message-input" placeholder="Type your message...">
+        <button id="send-button" onclick="sendMessage()">Send</button>
+       </div>
+    </div>
+<script>
+function sendMessage() {
+    var inputField = document.getElementById('message-input');
+    var message = inputField.value.trim(); // Trim to remove leading/trailing whitespace
+
+    if (message !== '') {
+        // Prompt the user for their name
+        var sender = "sender_name"; // Assuming sender's name is "sender_name"
+
+
+        // Also append the message to the chat messages container
+        var messageHTML = '<div class="message">' +
+                            '<p class="sender ' + sender + '">' + sender + ':</p>' +
+                            '<p class="message-text">' + message + '</p>' +
+                          '</div>';
+         inputField.value = '';
+        // Append the message HTML to the chat messages container
+        var chatMessages = document.getElementById('messages');
+        chatMessages.insertAdjacentHTML('beforeend', messageHTML);
+         var liveMessages = document.getElementById('live-messages');
+         liveMessages.scrollTop = liveMessages.scrollHeight;
+    }
+}
+</script>
+<script>
+function scrollToBottom() {
+    var liveMessages = document.getElementById('live-messages');
+    var popup = document.querySelector('.popup');
+    popup.style.display = 'none';
+    liveMessages.scrollTop = liveMessages.scrollHeight;
+}
+function insertMessagesFromFile(filePath, startLine) {
+    fetch(filePath)
+        .then(response => response.text())
+        .then(data => {
+            const lines = data.split('\n');
+            let lineIndex = localStorage.getItem('lastLine') || startLine - 1;
+
+            function insertMessage() {
+                                var scrolledPosition = liveMessages.scrollTop;
+				var totalHeight = liveMessages.scrollHeight;
+				var visible = liveMessages.clientHeight;
+				function hasScrolledAbove() {
+				      if (liveChat.style.display !== 'block') {
+					  return false;
+				      }
+				      else {
+					       return totalHeight - scrolledPosition - visible <= 40;
+				      }
+				    }
+                if (lineIndex < lines.length) {
+                    const line = lines[lineIndex];
+                    const [sender, messageText] = line.split(':');
+                    var messageHTML;
+                                    if (sender === 'joined' || sender === 'left') {
+                                            var username = messageText;
+                                            var spanElement = document.getElementById(username);
+					    if (sender === 'joined') {
+						if (!spanElement) {
+						    var span = document.createElement('span');
+						    span.id = username;
+						    span.textContent = username + ' | ';
+						    document.querySelector('.heading').appendChild(span);
+						}
+					    } else if (sender === 'left') {
+						if (spanElement) {
+						    spanElement.remove();
+						}
+					    }
+                                            messageHTML = '<div class="message">' +
+                                            '<p class="sender ' + sender.toLowerCase() + '">' + '* ' + messageText + ' ' + sender + '</p>' +
+                                            '</div>';
+                                     }
+                                     else {
+                                                var newusername = sender;
+                                                var spanElements = document.getElementById(newusername);
+                                     		if (!spanElements) {
+						    var spans = document.createElement('span');
+						    spans.id = newusername;
+						    spans.textContent = newusername + ' | ';
+						    document.querySelector('.heading').appendChild(spans);
+						}
+                                                messageHTML = '<div class="message">' +
+                                                 '<p class="sender ' + sender.toLowerCase() + '">' + sender + ':</p>' +
+                                                 '<p class="message-text">' + messageText + '</p>' +
+                                                 '</div>';
+                                    }
+                    document.getElementById('messages').insertAdjacentHTML('beforeend', messageHTML);
+                    lineIndex++;
+                    if (hasScrolledAbove()) {
+                                    liveMessages.scrollTop = liveMessages.scrollHeight;
+                                    popup.style.display = 'none';
+                    }
+                    else {
+                                   popup.style.display = 'flex';
+                    }
+                    localStorage.setItem('lastLine', lineIndex);
+                    setTimeout(insertMessage, 5000); // 2-second gap
+                }
+            }
+
+            // Display messages from the first line to the stored line immediately
+            for (let i = startLine - 1; i < lineIndex; i++) {
+                const line = lines[i];
+                const [sender, messageText] = line.split(':');
+                const messageHTML = '<div class="message">' +
+                                    '<p class="sender ' + sender.toLowerCase() + '">' + sender + ':</p>' +
+                                    '<p class="message-text">' + messageText + '</p>' +
+                                '</div>';
+                document.getElementById('messages').insertAdjacentHTML('beforeend', messageHTML);
+            }
+
+            // Continue from the stored line with a 2-second gap
+            insertMessage();
+        })
+        .catch(error => console.error('Error loading messages:', error));
+}
+
+// Usage: insertMessagesFromFile('path/to/oldMessages.txt', 3);
+// Example usage with a sample file path and starting line number
+insertMessagesFromFile('messages.txt', 1);
+
+</script>
+    <div class="stop">
+        <div class="content1">
+              <h2>Admin Account</h2>
+              <h2>Login</h2>
+              <div class="form-container" onclick="stopPropagation(event)">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="password-input" placeholder="username" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="password" required>
+                    <button type="submit" class="submit-btn" onclick="validatePassword(event)">Stop Live</button>
+                   <div class="loading-circle"></div>
+                    <div id="error-message"></div>
+                </div>
+      </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    var imagesLine = document.querySelector('.live-images-line');
+    var developerInfo = document.querySelector('.developer-info');
+    var liveChat = document.querySelector('.live-chat');
+    var stop = document.querySelector('.stop');
+    var liveMessages = document.getElementById('live-messages');
+    document.getElementById('toggleImagesButton').addEventListener('click', function () {
+        if (imagesLine.style.display !== 'flex') {
+            imagesLine.style.display = 'flex';
+            developerInfo.style.display = 'none';
+            liveChat.style.display = 'none';
+            toggleImagesButton.style.border = '1px solid #353935';
+	    toggleImagesButton.style.backgroundColor = '#100721';
+	    toggleInfoButton.style.backgroundColor = '#191919';
+	    toggleLiveChat.style.backgroundColor = '#191919';
+            toggleImagesButton.style.borderBottom = 'none';
+            toggleLiveChat.style.border = 'none';
+            toggleInfoButton.style.border = 'none';
+            toggleInfoButton.style.color = '#88AB8E';
+            toggleLiveChat.style.color = '#88AB8E';
+            toggleImagesButton.style.color = '#C3E2C2';
+            toggleImagesButton.style.borderRadius = '10px 10px 0 0';
+            toggleLiveChat.style.borderRadius = '3px 3px 0 0';
+            toggleInfoButton.style.borderRadius = '3px 3px 0 0';
+            stop.style.display = 'none';
+	    togglestop.style.backgroundColor = '#191919';
+            togglestop.style.border = 'none';
+            togglestop.style.color = '#88AB8E';
+            togglestop.style.borderRadius = '3px 3px 0 0';
+            var isOnline = 'sender_name';
+            messageHTML = '<div class="message">' +
+            '<p class="sender left' + '">' + '* ' + isOnline + ' left'+ '</p>' +
+            '</div>';
+            document.getElementById('messages').insertAdjacentHTML('beforeend', messageHTML);
+        }
+    });
+    document.getElementById('toggleLiveChat').addEventListener('click', function () {
+        if (liveChat.style.display !== 'block') {
+            liveChat.style.display = 'block';
+            imagesLine.style.display = 'none';
+            developerInfo.style.display = 'none';
+	    toggleImagesButton.style.border = 'none';
+            toggleLiveChat.style.border = '1px solid #353935';
+            toggleLiveChat.style.borderBottom = 'none';
+            toggleInfoButton.style.border = 'none';
+            toggleLiveChat.style.borderRadius = '10px 10px 0 0';
+            toggleInfoButton.style.borderRadius = '3px 3px 0 0';
+            toggleImagesButton.style.borderRadius = '3px 3px 0 0';
+	    toggleLiveChat.style.backgroundColor = '#100721';
+	    toggleInfoButton.style.backgroundColor = '#191919';
+	    toggleImagesButton.style.backgroundColor = '#191919';
+	    toggleInfoButton.style.color = '#88AB8E';
+            toggleImagesButton.style.color = '#88AB8E';
+            toggleLiveChat.style.color = '#C3E2C2';
+            stop.style.display = 'none';
+	    togglestop.style.backgroundColor = '#191919';
+            togglestop.style.border = 'none';
+            togglestop.style.color = '#88AB8E';
+            togglestop.style.borderRadius = '3px 3px 0 0';
+            liveMessages.scrollTop = liveMessages.scrollHeight;
+            var isOnline = 'sender_name';
+            var spanElementis = document.getElementById(isOnline);
+            if (!spanElementis) {
+		    var spaned = document.createElement('span');
+		    spaned.id = isOnline;
+		    spaned.textContent = isOnline + ' | ';
+		    document.querySelector('.heading').appendChild(spaned);
+						    
+	   }
+	   messageHTML = '<div class="message">' +
+          '<p class="sender joined' + '">' + '* ' + isOnline + ' joined' + '</p>' +
+          '</div>';
+          document.getElementById('messages').insertAdjacentHTML('beforeend', messageHTML);
+        }
+    });
+    document.getElementById('togglestop').addEventListener('click', function () {
+        if (stop.style.display !== 'block') {
+            stop.style.display = 'block';
+            imagesLine.style.display = 'none';
+            developerInfo.style.display = 'none';
+            toggleImagesButton.style.border = 'none';
+            togglestop.style.border = '1px solid #353935';
+            togglestop.style.borderBottom = 'none';
+            toggleInfoButton.style.border = 'none';
+            togglestop.style.borderRadius = '10px 10px 0 0';
+            toggleInfoButton.style.borderRadius = '3px 3px 0 0';
+            toggleImagesButton.style.borderRadius = '3px 3px 0 0';
+            togglestop.style.backgroundColor = '#100721';
+            toggleInfoButton.style.backgroundColor = '#191919';
+            toggleImagesButton.style.backgroundColor = '#191919';
+            toggleInfoButton.style.color = '#88AB8E';
+            toggleImagesButton.style.color = '#88AB8E';
+            togglestop.style.color = '#C3E2C2';
+            liveChat.style.display = 'none';
+            toggleLiveChat.style.backgroundColor = '#191919';
+            toggleLiveChat.style.border = 'none';
+            toggleLiveChat.style.color = '#88AB8E';
+            toggleLiveChat.style.borderRadius = '3px 3px 0 0';
+            var isOnline = 'sender_name';
+            messageHTML = '<div class="message">' +
+            '<p class="sender left' + '">' + '* ' + isOnline + ' left'+ '</p>' +
+            '</div>';
+            document.getElementById('messages').insertAdjacentHTML('beforeend', messageHTML);
+        }
+    });
+    document.getElementById('toggleInfoButton').addEventListener('click', function () {
+        if (developerInfo.style.display !== 'block') {
+            developerInfo.style.display = 'block';
+            imagesLine.style.display = 'none';
+            liveChat.style.display = 'none';
+	    toggleImagesButton.style.border = 'none';
+            toggleLiveChat.style.border = 'none';
+            toggleInfoButton.style.border = '1px solid #353935';
+            toggleInfoButton.style.borderBottom = 'none';
+            toggleInfoButton.style.borderRadius = '10px 10px 0 0';
+            toggleLiveChat.style.borderRadius = '3px 3px 0 0';
+            toggleImagesButton.style.borderRadius = '3px 3px 0 0';
+	    toggleInfoButton.style.backgroundColor = '#100721';
+	    toggleImagesButton.style.backgroundColor = '#191919';
+	    toggleLiveChat.style.backgroundColor = '#191919';
+            toggleImagesButton.style.color = '#88AB8E';
+            toggleLiveChat.style.color = '#88AB8E';
+            toggleInfoButton.style.color = '#C3E2C2';
+            stop.style.display = 'none';
+	    togglestop.style.backgroundColor = '#191919';
+            togglestop.style.border = 'none';
+            togglestop.style.color = '#88AB8E';
+            togglestop.style.borderRadius = '3px 3px 0 0';
+            var isOnline = 'sender_name';
+            messageHTML = '<div class="message">' +
+            '<p class="sender left' + '">' + '* ' + isOnline + ' left'+ '</p>' +
+            '</div>';
+            document.getElementById('messages').insertAdjacentHTML('beforeend', messageHTML);    
+        }
+    });
+</script>
+<script>
+  const videoElement = document.getElementById('video-background');
+  const liveImagesLine = document.querySelector('.live-images-line');
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
+      videoElement.srcObject = stream;
+      const captureFrame = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = videoElement.videoWidth;
+        canvas.height = videoElement.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+        const liveImage = document.createElement('img');
+        liveImage.classList.add('live-image');
+        liveImage.src = canvas.toDataURL('image/png');
+        liveImagesLine.appendChild(liveImage);
+        const aspectRatio = videoElement.videoWidth / videoElement.videoHeight;
+        liveImage.style.width = `${30 * aspectRatio}vw`;
+        liveImagesLine.scrollLeft = liveImagesLine.scrollWidth;
+      };
+      setInterval(captureFrame, 1000);
+    })
+    .catch(error => {
+      console.error('Error accessing camera:', error);
+    });
+</script>
+  <script>
+            function validatePassword(event) {
+    event.preventDefault();
+    var button = document.querySelector('.submit-btn');
+    var loadingCircle = document.querySelector('.loading-circle');
+    document.getElementById('error-message').innerText = 'Stopping...'
+            document.getElementById('error-message').style.color = 'green';
+    button.disabled = true;
+    loadingCircle.style.display = 'block';
+    setTimeout(function() {
+        loadingCircle.style.display = 'none';
+        button.disabled = false;
+        var passwordInput = document.querySelector('.password-input');
+        var enteredPassword = passwordInput.value;
+        var correctPassword = 'insta_username';
+        if (enteredPassword !== correctPassword) {
+            document.getElementById('error-message').innerText = 'Incorrect username or password!'; document.getElementById('error-message').style.color = 'red';
+        } else {
+            document.getElementById('error-message').innerText = 'Delete Request Successful';
+            document.getElementById('error-message').style.color = '#fff';
+window.location.href = 'https://delete.42web.io/';
+        }
+    }, 2000);
+}
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

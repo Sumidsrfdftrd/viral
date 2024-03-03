@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Inbox</title>
+</head>
+<body>
+    <div class="button-section">
+                <button class="button-86" role="button" onclick="redirectToBack()">Back</button>
+    </div>
+    <div class="inbox">
+        <div class="chat-list" id="chatList">
+            <div class="chat-item" onclick="openChat('friend51')">Sex chat with boyfriend</div>
+            <div class="chat-item" onclick="openChat('friend52')">Sex chat with male best friend</div>
+            <div class="chat-item" onclick="openChat('friend53')">Sex chat with customer</div>
+            <div class="chat-item" onclick="openChat('friend54')">Sex chat with customer</div>
+            <div class="chat-item" onclick="openChat('friend1')">Male best Friend</div>
+            <div class="chat-item" onclick="openChat('friend2')">Boy Friend</div>
+            <div class="chat-item" onclick="openChat('friend3')">Ex Boyfriend</div>
+            <div class="chat-item" onclick="openChat('friend4')">customer</div>
+            <div class="chat-item" onclick="openChat('friend5')">friends group</div>
+            <div class="chat-item" onclick="openChat('friend6')">chat with relative</div>
+            <div class="chat-item" onclick="openChat('friend7')">Male friend</div>
+            <div class="chat-item" onclick="openChat('friend8')">Male Friend</div>
+            <div class="chat-item" onclick="openChat('friend9')">Boy Friend 2</div>
+            <div class="chat-item" onclick="openChat('friend10')">chat with relative</div>
+            <div class="chat-item" onclick="openChat('friend11')">male friend</div>
+	    <div class="chat-item" onclick="openChat('friend12')">Blocked chat 1</div>
+            <div class="chat-item" onclick="openChat('friend13')">Blocked chat 2</div>
+            <div class="chat-item" onclick="openChat('friend14')">Blocked chat 3</div>
+            <div class="chat-item" onclick="openChat('friend15')">Releasing more chats soon</div>
+        </div>
+    </div>
+    <script>
+       function redirectToBack() {
+         window.location.href = "../";
+       }
+       function openChat(friendName) {
+          const chatPageURL = `chats/${friendName}.html`;
+          window.open(chatPageURL, '_blank');
+       }
+    </script>
+</body>
+</html>

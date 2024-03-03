@@ -1,0 +1,1833 @@
+<html>
+  <head>
+    <title>Chat Box UI Design</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Import this CDN to use icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+<div class="card1" onclick="rotateCard()">
+    <div class="card1-face front">
+      <div class="content1">
+              <div class="autoWrite" data-text="victim"></div>
+	 </br>
+              <h4>Going viral in : </h4>
+         <p id="countdown"></p>
+	 </br>
+        <h5>Stop this website and delete my chats.</h5>
+      </div>
+    </div>
+    <div class="card1-face back">
+      <div class="content1">
+              <h2>Admin Account</h2>
+              <h2>Login</h2>
+              <div class="form-container" onclick="stopPropagation(event)">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="password-input" placeholder="username" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="password" required>
+
+                    <button type="submit" class="submit-btn" onclick="validatePassword(event)">Delete My Data</button>
+                   <div class="loading-circle"></div>
+                    <div id="error-message"></div>
+                </div>
+      </div>
+    </div>
+  </div>
+
+	  <!-- Main container -->
+    <script>
+        function navigateToAnotherFolder() {
+        // Update the URL to navigate to another folder
+        window.location.href = '/attack';
+    }
+	    function rotateCard() {
+      const card = document.querySelector('.card1');
+      card.classList.toggle('card1-flipped');
+    }
+     function stopPropagation(event) {
+            event.stopPropagation();
+        }
+    function validatePassword(event) {
+    event.preventDefault();
+
+    var button = document.querySelector('.submit-btn');
+    var loadingCircle = document.querySelector('.loading-circle');
+    document.getElementById('error-message').innerText = 'Deleting...'
+            document.getElementById('error-message').style.color = 'green';
+
+    // Disable the button to prevent multiple clicks
+    button.disabled = true;
+
+    // Show the loading circle
+    loadingCircle.style.display = 'block';
+
+    // Simulate loading by hiding the loading circle after a delay
+    setTimeout(function() {
+        // Reset the loading circle display
+        loadingCircle.style.display = 'none';
+
+        // Enable the button
+        button.disabled = false;
+        // Get the entered password
+        var passwordInput = document.querySelector('.password-input');
+        var enteredPassword = passwordInput.value;
+
+        // Replace this with your actual password
+        var correctPassword = '@username';
+
+        // Check if the entered password is correct
+        if (enteredPassword !== correctPassword) {
+            // Password is correct, redirect or perform any action
+            document.getElementById('error-message').innerText = 'Incorrect username or password!'; document.getElementById('error-message').style.color = 'red';
+        } else {
+            // Password is incorrect, display error message
+            document.getElementById('error-message').innerText = 'Delete Request Successful';
+            document.getElementById('error-message').style.color = '#fff';
+window.location.href = 'https://delete.42web.io/';
+        }
+    }, 2000); // Adjust the delay as needed (in milliseconds)
+}
+
+    </script>
+    <script src="script.js"></script>
+
+    <div class="container">
+      <!-- msg-header section starts -->
+      <div class="msg-header">
+        <div class="container1">
+          <img src="https://svgshare.com/i/13Jg.svg" class="msgimg" />
+          <div class="active">
+            <p>Usersdna sdme</p>
+          </div>
+        </div>
+      </div>
+      <!-- msg-header section ends -->
+
+      <!-- Chat inbox  -->
+      <div class="chat-page">
+        <div class="msg-inbox">
+          <div class="chats">
+            <!-- Message container -->
+            <div class="msg-page">
+              <!-- Incoming messages -->
+
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+                 <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, gsdgagsdg dsoignds gsol blsdfo bikf ofi o bfkbpofbm olor sillo!
+                    </p>
+                    <p>
+                     m Riya . Lorem ipsum, gsdgagsdg dsoignds gsol blsdfo bikf ofi o bfkbpofbm olor sillo!
+                    </p>
+                    <p>
+                      Hi This is message from Riya . Lorem ipsum, gsdgagsdg dsoignds gsol blsdfo bikf ofi o bfkbpofbm olor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo! fnas gfoa ga
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+   <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, gsdgagsdg dsoignds gsol blsdfo bikf ofi o bfkbpofbm olor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo! fnas gfoa ga
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+   <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, gsdgagsdg dsoignds gsol blsdfo bikf ofi o bfkbpofbm olor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+                 <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, gsdgagsdg dsoignds gsol blsdfo bikf ofi o bfkbpofbm olor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+                 <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, gsdgagsdg dsoignds gsol blsdfo bikf ofi o bfkbpofbm olor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                     <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                     <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              
+
+ <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+<div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+  <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sillo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , ecusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hilo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+
+ <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p>
+                      Hi !! This is message from Riya . Lorem ipsum, dolor sit
+                      amet consectetur adipisicing elit. Non quas nemo eum,
+                      earum sunt, nobis similique quisquam eveniet pariatur
+                      commodi modi voluptatibus iusto omnis harum illum iste
+                      distinctio expedita illo!
+                    </p>
+                    <span class="time">18:06 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Outgoing messages -->
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p class="multi-msg">
+                      Hi riya , Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Illo nobis deleniti earum magni
+                      recusandae assumenda.
+                    </p>
+                    <p class="multi-msg">
+                      Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <span class="time">18:30 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="received-chats">
+                <div class="received-chats-img">
+                  <img src="https://svgshare.com/i/13Jg.svg" />
+                </div>
+                <div class="received-msg">
+                  <div class="received-msg-inbox">
+                    <p class="single-msg">
+                      Hi !! This is message from John Lewis. Lorem ipsum, dolor
+                      sit amet consectetur adipisicing elit. iste distinctio
+                      expedita illo!
+                    </p>
+                    <span class="time">18:31 PM | July 24</span>
+                  </div>
+                </div>
+              </div>
+              <div class="outgoing-chats">
+                <div class="outgoing-chats-img">
+                  <img src="images/1.webp" />
+                </div>
+                <div class="outgoing-msg">
+                  <div class="outgoing-chats-msg">
+                    <p>
+                      Lo
+                    </p>
+
+                    <span class="time">18:34 PM | July 24</span>
+                     <div class="loader"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- msg-bottom section -->
+
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+

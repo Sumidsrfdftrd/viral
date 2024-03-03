@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: flex; /* Change display property to flex */
+  align-items: center;
+  justify-content: center;
+  background: #100721;
+  font-family: "Ubuntu Mono", monospace;
+  margin: 0; /* Remove default body margin */
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px;
+  gap: 10px; /* Adjust the gap between cards as needed */
+}
+        h1 {
+            color: #000;
+            margin-left: 0px;
+            font-size: 1.2rem;
+	    font-weight: bold;
+            text-align: center;
+        }
+        h4 {
+            color: #fff;
+            margin-left: 0px;
+	    font-size: 0.7rem;
+            text-align: left;
+        }
+        h5 {
+            color: #fff;
+	    z-index: 5;
+            margin-left: 0px;
+	    font-size: 0.8rem;
+	    filter: blur(3px);
+            text-align: center;
+        }
+        h6 {
+            color: #fff;
+	    z-index: 5;
+            margin-left: 0px;
+	    font-size: 0.8rem;
+	    filter: blur(1px);
+            text-align: center;
+        }
+	h3 {
+            color: #fff;
+	    font-size: 1rem;
+            text-align: center;
+        }
+        .logo {
+            width: 20px; /* Adjust the width of the logo as needed */
+            height: auto;
+            margin-right: 10px;
+        }
+    .title {
+      font-size: 1.5em; /* Adjust font size for "Username" */
+      color: #3366cc; /* Set color for "Username" */
+    }
+.autoWrite{
+    color: #00FF00;
+    font-size: 1rem;
+}
+.timer-container {
+    font-size: 1.3rem;
+    font-family: 'Courier New', monospace;
+}
+.countdown {
+    color: red;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+    .value {
+      font-size: 1.2em; /* Adjust font size for "available" */
+      color: #009900; /* Set color for "available" */
+    }
+.card1 {
+  display: flex;
+  width: 30vw;
+  height: 30vw;
+  position: relative;
+  margin-bottom: 0px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+  box-shadow: 16px 16px 8px rgba(0, 0, 0, 0.2);
+}
+.card1-flipped {
+  transform: rotateY(180deg);
+}
+.card1-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.card1.card1-1 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13JK.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-2 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13Gx.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-3 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13HA.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-4 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13Ga.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+
+.card1.card1-5 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13HU.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-6 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13Gy.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-7 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13Gz.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-8 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13HV.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-9 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13Gb.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-10 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13Gc.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-11 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13HB.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-12 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13HC.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-13 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13JW.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-14 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13JX.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-15 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13H0.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-16 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13H1.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-18 .card1-face.front {
+  background-image: url('https://svgshare.com/i/13Ey.svg'); /* Specify the path to the image for the front face */
+  background-size: cover;
+}
+.card1.card1-17 .card1-face.front {
+  background-color: transparent;
+}
+           .my-button {
+      display: inline-block;
+      padding: 15px 50px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      border: 0.2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .my-button:hover {
+      background-color: #2980b9;
+    }
+.card1-face.back {
+  background-color: #17141d; /* or any color you prefer for the back face */
+  transform: rotateY(180deg);
+}
+
+.content1 {
+  text-align: center;
+}

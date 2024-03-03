@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #100721;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+}
+h2 {
+    color: #d0bdf4;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 40px;
+}
+h4 {
+    color: #d0bdf4;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 40px;
+}
+        h5 {
+	    font-family: 'Open Sans', sans-serif;
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+	    font-size: 45px;
+	    font-weight: bold;
+	    color: #fff;
+            margin: 20px;
+            border: 3px double #00FF00; /* Set the color of the double outline */
+        }
+        h5::before {
+		font-family: 'Open Sans', sans-serif;
+            content: '';
+            position: absolute;
+	    font-size: 45px;
+            top: -6px;
+	    color: #fff;
+            right: -6px;
+            bottom: -6px;
+            left: -6px;
+            border: 3px double #00FF00; /* Set the color of the double outline */
+        }
+#timer {
+    font-size: 70px;
+    font-family: 'Courier New', monospace;
+}
+.autoWrite{
+    color: #00FF00;
+    font-size: 40px;
+}
+#countdown {
+    color: red;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 70px;
+    text-align: center;
+}
+   .card1 {
+      display: flex;
+      width: 420px;
+      height: 400px;
+      position: relative;
+      margin-bottom: 20px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      cursor: pointer;
+      box-shadow: 16px 16px 8px rgba(0, 0, 0, 0.2);
+    }
+   .card1-flipped {
+      transform: rotateY(180deg);
+    }
+    .card1-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background-color: #17141d;
+    }
+    .card1 .front {
+      transform: rotateY(0deg);
+    }
+    .card1 .back {
+      transform: rotateY(180deg);
+    }
+    .content1 {
+      text-align: center;
+    }
+.box {
+      width: 200px;
+      height: 200px;
+      background-color: #ffffff; /* Set your desired background color */
+      margin: 50px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+   }
+   .container1 {
+  height: 400px;
+  width: 600px;
+  display: flex;
+}
+       .loading-circle-container {
+            position: relative;
+            display: flex;
+            flex-direction: column; /* Arrange children vertically */
+            align-items: center;  /* Center vertically */
+            justify-content: center;  /* Center horizontally */
+        }
+        .loading-circle {
+            margin-top: 15px;
+	    margin-left: 50%;
+            align-items: center;
+            border: 4px solid #3498db;  /* This is the color of the loading circle */
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: none;
+            animation: rotateLoading 1s linear infinite; /* CSS animation for rotation */
+        }
+        @keyframes rotateLoading {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        #error-message {
+            color: green; /* Red color for error message */
+            margin-bottom: 10px;
+            text-align: center;
+	    font-size: 24px;
+        }
+.form-container button {
+            padding: 10px;
+            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%); /* Use the converted RGBA value or adjust as needed */
+            color: #fff;
+	    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+	    text-align: center;
+	    margin-top: 10px;
+	    margin-left: 10%;
+	    width: 80%;
+            border: none;
+	    font-size: 24px;
+	    font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-container button:hover {
+		box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+                transform: translateY(-2px);
+        }
+	.form-container button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+	.form-container button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+.form-container {
+            display: flex;
+	    color: #00FF00;
+	    font-size: 30px;
+	    text-align: left;
+            flex-direction: column;
+        }
+        .form-container input {
+            margin-bottom: 10px;
+            padding: 8px;
+	    font-size: 24px;
+	    color: #fff;
+	    background-color: transparent;
+            border: 1px solid #00FF00;
+            border-radius: 5px;
+        }
+           .my-button {
+      display: inline-block;
+      padding: 15px 50px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      border: 0.2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .my-button:hover {
+      background-color: #2980b9;
+    }
+        .container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 800px;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  > div {
+    flex: 0 0 120px;
+    border-radius: 0.5rem;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: 1px 5px 15px #1e0e3e;
+    position: relative;
+    overflow: hidden;
+    .content {
+      font-size: 1.5rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      opacity: 0;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-end;
+      background: rgb(2, 2, 46);
+      background: linear-gradient(
+        0deg,
+        rgba(2, 2, 46, 0.6755077030812324) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: translatey(100%);
+      transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+      visibility: hidden;
+
+      span {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.2rem;
+      }
+    }
+
+    &:hover {
+      flex: 0 0 250px;
+      box-shadow: 1px 3px 15px #7645d8;
+      transform: translatey(-30px);
+    }
+
+    &:hover .content {
+      opacity: 1;
+      transform: translatey(0%);
+      visibility: visible;
+    }
+  }
+}
+.blur-load::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   animation: pulse 2.5s infinite;
+   background-color: rgba(255, 255, 255, 0.1);
+}
+.blur-load.loaded::before {
+  content: none;
+  filter: blur(5px);
+}
+.blur-load.loaded {
+  filter: blur(5px);
+}
+@keyframes pulse {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+.blur-load {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}

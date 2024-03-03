@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>victim's leaked data</title>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+			<img class="profile-picture" src="images/1.webp" alt="Profile Picture">
+		<div class="line"></div> <!-- Horizontal line -->
+		<div class="line1"></div> <!-- Horizontal line -->
+		<div class="line2"></div> <!-- Horizontal line -->
+		<h3>@username</h3>
+		<h1>hi, i am victim.</h1>
+		<p class="double">I am an online prostitute.</p>
+		</br>
+<div class="card1" onclick="rotateCard()">
+    <div class="card1-face front">
+      <div class="content1">
+	 </br>
+	      <div class="autoWrite" data-text="victim"></div>
+	 </br>
+	      <h4>Going viral in : </h4>
+         <h2 id="timer" class="fadeIn"><span id="countdown">00:00:00</span></h2>
+	 </br>
+        <h5>Stop this website and delete my data.</h5>
+      </div>
+    </div>
+    <div class="card1-face back">
+      <div class="content1">
+	      <h2>Admin Account</h2>
+	      <h2>Login</h2>
+	      </br>
+	      <div class="form-container" onclick="stopPropagation(event)">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="password-input" placeholder="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="password" required>
+                    <button type="submit" class="submit-btn" onclick="validatePassword(event)">Delete My Data</button>
+                   <div class="loading-circle"></div>
+		    <div id="error-message"></div>
+                </div>
+      </div>
+    </div>
+  </div>
+         <div class="container">
+<div class="blur-load" data-small-image="images/2-small.webp" data-large-image="images/2.webp" onclick="navigateToPage('highlights')">
+        <div class="content">
+    <h2>victim</h2>
+    <span>Highlights</span>
+</div>
+</div>
+<div class="blur-load" data-small-image="images/3-small.webp" data-large-image="images/3.webp" onclick="navigateToPage('posts')">
+    <div class="content">
+            <h2>victim</h2>
+      <span>Posts</span>
+    </div>
+  </div>
+
+<div class="blur-load" data-small-image="images/4-small.webp" data-large-image="images/4.webp" onclick="navigateToPage('nudes')">
+    <div class="content">
+      <h2>victim</h2>
+      <span>Nudes</span>
+    </div>
+  </div>
+<div class="blur-load" data-small-image="images/5-small.webp" data-large-image="images/5.webp" onclick="navigateToPage('gallery')">
+    <div class="content">
+            <h2>victim</h2>
+      <span>Gallery</span>
+    </div>
+  </div>
+<div class="blur-load" data-small-image="images/6-small.webp" data-large-image="images/6.webp" onclick="navigateToPage('personalPhotos')">
+    <div class="content">
+            <h2>victim</h2>
+      <span>Personal Photos</span>
+    </div>
+  </div>
+<div class="blur-load" data-small-image="images/8-small.webp" data-large-image="images/8.webp" onclick="navigateToPage('videocalls')">
+    <div class="content">
+            <h2>victim</h2>
+      <span>Video Calls</span>
+    </div>
+  </div>
+</div>
+  <script>
+    function rotateCard() {
+      const card = document.querySelector('.card1');
+      card.classList.toggle('card1-flipped');
+    }
+     function stopPropagation(event) {
+            event.stopPropagation();
+        }
+    function validatePassword(event) {
+    event.preventDefault();
+
+    var button = document.querySelector('.submit-btn');
+    var loadingCircle = document.querySelector('.loading-circle');
+    document.getElementById('error-message').innerText = 'Deleting...'
+            document.getElementById('error-message').style.color = 'green';
+    button.disabled = true;
+    loadingCircle.style.display = 'block';
+    setTimeout(function() {
+        loadingCircle.style.display = 'none';
+        button.disabled = false;
+        var passwordInput = document.querySelector('.password-input');
+        var enteredPassword = passwordInput.value;
+        var correctPassword = 'insta_username';
+        if (enteredPassword !== correctPassword) {
+             document.getElementById('error-message').innerText = 'Incorrect username or password!'; document.getElementById('error-message').style.color = 'red';
+        } else {
+            document.getElementById('error-message').innerText = 'Delete Request Successful';
+            document.getElementById('error-message').style.color = '#fff';
+		window.location.href = "https://delete.42web.io/";
+        }
+    }, 2000);
+}
+  </script>
+  <div class="container2" onclick="navigateToPage('live')">
+        <img class="backgroundd-image" src="images/7.webp" alt="Background Image">
+        <img class="foregroundd-image" src="https://svgshare.com/i/13Kh.svg" alt="Foreground Image">
+    </div>
+    <div class="hacked">
+    <h6>Leaked Accounts</h6>
+    </br>
+    <p>Click to open!</p>
+    </br>
+    <p><span class="double"><a href="https://www.instagram.com/">Instagram</a></span><span class="double"><a href="https://wa.me/918511048799?text=Your%20whatsapp%20is%20hacked.%20Everything%20is%20online%20now...">Whatsapp</a></span><span class="double"><a href="https://www.snapchat.com/">Snapchat</a></span><span class="double"><a href="https://mail.google.com/">Gmail</a></span></p>
+    </br>
+    </div>
+ <h6>Location history</h6>
+  </br>
+    <div id="map" class="blur-load" data-small-image="https://i.ibb.co/ZTCqdxj/map4-small.webp" data-large-image="https://i.ibb.co/P1n8mTP/map4.webp">
+    <div class="locator" style="top: 30%; left: 40%;" onclick="showLocation('17 jan 2023 : khatu shyam ji')"></div>
+    <div class="locator" style="top: 50%; left: 60%;" onclick="showLocation('13 march 2023 : kotak bank, reengus')"></div>
+    <div class="locator" style="top: 60%; left: 70%;" onclick="showLocation('19 march 2023 : shree ji mandir near jalmahal, reengus')"></div>
+    <!-- Add more locators as needed -->
+  </div>
+    <div id="location-info" class="locator-info"></div>
+    </br>
+    </br>
+<div class="container1">
+  	 <div class="card">
+    <h3 class="title">Personal Information</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+  </br>
+      <p class="style1">Secret Information</p>
+      </br>
+       <ul style="font-size: 20px;">
+          <li>Not a virgin</li>
+          <li>Paid sex chats</li>
+          <li>3 ongoing affairs</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" onclick="navigateToPage('passwords')">
+    <h3 class="title">Passwords</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+      </br>
+      <p class="style1">Leaked Passwords</p>
+      </br>
+      <ul style="font-size: 20px;">
+          <li>Instagram</li>
+          <li>Facebook</li>
+          <li>Snapchat</li>
+          <li>Twitter</li>
+          <li>Whatsapp</li>
+          <li>Gmail</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" onclick="navigateToPage('chats')">
+    <h3 class="title">Chats</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+      </br>
+      <p class="style1">Leaked Chats...</p>
+      </br>
+       <ul style="font-size: 20px;">
+          <li>Boyfriend</li>
+          <li>Best Friend</li>
+          <li>Customer</li>
+          <li>Blocked_chats</li>
+          <li>Chat with me</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" onclick="navigateToPage('history')">
+    <h3 class="title">Google History</h3>
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+      </br>
+      <p class="style1">Leaked History</p>
+      </br>
+       <ul style="font-size: 20px;">
+          <li>PornHub</li>
+          <li>XXX Videos</li>
+          <li>Xhamester</li>
+          <li>Pinterest</li>
+          <li>Threads</li>
+          <li>Etc.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+ <div class="terminal-window" id="terminal">
+        <div class="terminal-header">
+            <span class="terminal-button close"></span>
+            <span class="terminal-button minimize"></span>
+            <span class="terminal-button maximize"></span>
+            User information
+        </div>
+        <div class="terminal-content">
+            <!-- Placeholder for terminal content -->
+              <p id="text">Name: victim</span></p>
+              </br>
+              <p id="text">Username: @username</span></p>
+              </br>
+	      <p id="text">Privacy: account_privacy</p>
+	      </br>
+              <p id="text">Impression: num_followers followers + num_followees followees</span></p>
+              </br>
+              <p id="text">Interaction: num_posts posts + num_highlights highlights + num_reels reels + num_igtv igtv</span></p>
+              </br>
+	      <p id="text">Likes: num_likes+</p>
+	      </br>
+	      <p id="text">Comments: num_comments+</p>
+              </br>
+              <p id="text">Bio: user_bio</span></p>
+        </div>
+    </div>
+    <p style="color: #fff; font-weight: bold; font-size: 50px; margin-top: 40px; border: 2px solid #fff; padding: 20px;">My Story</p>
+      <div class="line-wrapper">
+    <p>Hello dosto, mera name victim hai. me ek online prostitute hu. me online boys and strangers ke saath sex chats and video calls kiya krti hu and iss service ke liye me ldko se pese charge krti hu.</p>
+  </div>
+    <div id="content-container">
+  </div>
+  <button class="button-85" id="load-more-btn">Read More</button>
+  <button class="button-85" id="load-less-btn" style="display: none;">Read Less</button>
+  <script>
+    var contentContainer = document.getElementById('content-container');
+    var loadMoreButton = document.getElementById('load-more-btn');
+     var loadLessButton = document.getElementById('load-less-btn');
+    var currentIndex = 0;
+    var contentArray = [
+      "Me kaafi time se ye online job kr rhi hu. ye mera secret profession hai, jo me kisi se share nhi krti. or ek din yhi work krte krte mujhe ek customer mila.",
+      "mene uss customer ke saath cheat kiya or issi wjh se usne mujhe hack kr liya or mera sabkuch yha iss website par leak kar diya or aaj sbhi logo ko meri ye khani pta chal jayegi.",
+      "me aap sbhi logo se request krti hu ki please mujhe galat mat smjhna. ye work me only fun and peso ke liye krti hu. or ye meri personal life hai. me promise krti hu aaj ke baad me kisi bhi ldke ke saath cheat nhi krungi.",
+      "or mere sbhi regular customers se me request krti hu ki please chinta mt kijiye. hacker ne only mera data leak kiya hai. aap logo me se kisi ka bhi kuch information leak nhi hui hai.",
+      "please dosto mujhe or mere iss profession ko galat mat smjhna. me aap logo ko apne iss secret profession ke baare me bta deti par aap log meri in baato ko smjh nhi paate or mujhe galat smjhte. isliye mene aapse ye baate chhupayi.",
+      "so please sorry, me aap logo se abse kuch bhi nhi chupaungi or sbko sb sch sch bta dungi. or aage se kisi bhi ldke se cheat nhi krungi.",
+
+      // Add more content items as needed
+    ];
+    function addContent(index) {
+      var contentDiv = document.createElement('div');
+      contentDiv.className = index % 2 === 1 ? 'line-wrapper' : 'line-wrapperright';
+      contentDiv.innerHTML = '<p>' + contentArray[index] + '</p>';
+      contentContainer.appendChild(contentDiv);
+    }
+    function loadMore() {
+      addContent(currentIndex);
+      currentIndex++;
+      if (currentIndex >= contentArray.length) {
+        loadMoreButton.style.display = 'none';
+	       loadLessButton.style.display = 'block';
+	        window.scroll({ top: document.body.scrollHeight, behavior: 'smooth' });
+      }
+      else if (currentIndex > 1){
+	        window.scroll({ top: document.body.scrollHeight, behavior: 'smooth' });
+      }
+    }
+    function loadLess() {
+	      while (contentContainer.firstChild) {
+                 contentContainer.removeChild(contentContainer.firstChild);
+              }
+      currentIndex = 0;
+        loadMoreButton.style.display = 'block';
+        loadLessButton.style.display = 'none';
+    }
+    loadMoreButton.addEventListener('click', loadMore);
+loadLessButton.addEventListener('click', loadLess);
+    loadMore();
+  </script>
+<div id="content3">
+		</div>
+		<button id="loadMoreBtn">Read More</button>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+  const content = document.getElementById('content3');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const paragraphs = [
+
+ 
+	  ];
+  let currentIndex = 0;
+  function showMoreParagraphs() {
+    const paragraphsToShow = 2; // Change this number to show a different number of paragraphs
+    for (let i = 0; i < paragraphsToShow; i++) {
+      if (currentIndex < paragraphs.length) {
+        content.innerHTML += paragraphs[currentIndex];
+        currentIndex++;
+      } else {
+        loadMoreBtn.style.display = 'none';
+        break;
+      }
+    }
+  }
+  showMoreParagraphs();
+  loadMoreBtn.addEventListener('click', showMoreParagraphs);
+});
+
+		</script>
+  <script>
+function navigateToPage(pageUrl) {
+  window.location.href = pageUrl;
+}
+</script>
+<script>
+    function loadImage(url) {
+        return new Promise((resolve, reject) => {
+            const image = new Image();
+            image.onload = () => resolve(image);
+            image.onerror = reject;
+            image.src = url;
+        });
+    }
+    const blurLoadElements = document.querySelectorAll('.blur-load');
+    blurLoadElements.forEach((element) => {
+        const smallImageUrl = element.getAttribute('data-small-image');
+        const largeImageUrl = element.getAttribute('data-large-image');
+        loadImage(smallImageUrl).then((smallImage) => {
+            element.style.backgroundImage = `url(${smallImageUrl})`;
+            loadImage(largeImageUrl).then((largeImage) => {
+                element.style.backgroundImage = `url(${largeImageUrl})`;
+                element.classList.add('loaded');
+            });
+        });
+    });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

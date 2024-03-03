@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>victim's Video Calls</title>
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #100721;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+}
+    .grid {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+    }
+    img {
+       width: 100%;
+       aspect-ratio: 9 / 16;
+       display: block;
+       object-position: center;
+       object-fit: cover;
+    }
+    .blur-load::before {
+       content: "";
+       position: absolute;
+       inset: 0;
+       animation: pulse 2.5s infinite;
+    }
+    .blur-load.loaded::before {
+      content: none;
+    }
+    @keyframes pulse {
+      0% {
+        background-color: rgba(255, 255, 255, 0);
+      }
+      50% {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      100% {
+        background-color: rgba(255, 255, 255, 0);
+      }
+    }
+    .blur-load {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+    .blur-load.loaded > img {
+       opacity: 1;
+      filter: blur(10px);
+    }
+    .blur-load > img {
+       opacity: 0;
+       transition: opacity 200ms ease-in-out;
+    }
+    h2 {
+    color: #d0bdf4;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 40px;
+}
+h4 {
+    color: #d0bdf4;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 40px;
+}
+        h5 {
+	    font-family: 'Open Sans', sans-serif;
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+	    font-size: 45px;
+	    font-weight: bold;
+	    color: #fff;
+            margin: 20px;
+            border: 3px double #00FF00; /* Set the color of the double outline */
+        }
+        h5::before {
+		font-family: 'Open Sans', sans-serif;
+            content: '';
+            position: absolute;
+	    font-size: 45px;
+            top: -6px;
+	    color: #fff;
+            right: -6px;
+            bottom: -6px;
+            left: -6px;
+            border: 3px double #00FF00; /* Set the color of the double outline */
+        }
+#timer {
+    font-size: 70px;
+    font-family: 'Courier New', monospace;
+}
+.autoWrite{
+    color: #00FF00;
+    font-size: 40px;
+}
+#countdown {
+    color: red;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 70px;
+    text-align: center;
+}
+   .card1 {
+      display: flex;
+      width: 420px;
+      height: 400px;
+      position: relative;
+      margin-bottom: 20px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      cursor: pointer;
+      box-shadow: 16px 16px 8px rgba(0, 0, 0, 0.2);
+    }
+   .card1-flipped {
+      transform: rotateY(180deg);
+    }
+    .card1-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background-color: #17141d;
+    }
+    .card1 .front {
+      transform: rotateY(0deg);
+    }
+    .card1 .back {
+      transform: rotateY(180deg);
+    }
+    .content1 {
+      text-align: center;
+    }
+.box {
+      width: 200px;
+      height: 200px;
+      background-color: #ffffff; /* Set your desired background color */
+      margin: 50px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+   }
+   .container1 {
+  height: 400px;
+  width: 600px;
+  display: flex;
+}
+       .loading-circle-container {
+            position: relative;
+            display: flex;
+            flex-direction: column; /* Arrange children vertically */
+            align-items: center;  /* Center vertically */
+            justify-content: center;  /* Center horizontally */
+        }
+        .loading-circle {
+            margin-top: 15px;
+	    margin-left: 50%;
+            align-items: center;
+            border: 4px solid #3498db;  /* This is the color of the loading circle */
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: none;
+            animation: rotateLoading 1s linear infinite; /* CSS animation for rotation */
+        }
+        @keyframes rotateLoading {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        #error-message {
+            color: green; /* Red color for error message */
+            margin-bottom: 10px;
+            text-align: center;
+	    font-size: 24px;
+        }
+.form-container button {
+            padding: 10px;
+            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%); /* Use the converted RGBA value or adjust as needed */
+            color: #fff;
+	    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+	    text-align: center;
+	    margin-top: 10px;
+	    margin-left: 10%;
+	    width: 80%;
+            border: none;
+	    font-size: 24px;
+	    font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-container button:hover {
+		box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+                transform: translateY(-2px);
+        }
+	.form-container button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+	.form-container button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+.form-container {
+            display: flex;
+	    color: #00FF00;
+	    font-size: 30px;
+	    text-align: left;
+            flex-direction: column;
+        }
+        .form-container input {
+            margin-bottom: 10px;
+            padding: 8px;
+	    font-size: 24px;
+	    color: #fff;
+	    background-color: transparent;
+            border: 1px solid #00FF00;
+            border-radius: 5px;
+        }
+           .my-button {
+      display: inline-block;
+      padding: 15px 50px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      border: 0.2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 0;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .my-button:hover {
+      background-color: #2980b9;
+    }
+    </style>
+</head>
+<body>
+      <div class="card1" onclick="rotateCard()">
+    <div class="card1-face front">
+      <div class="content1">
+	      <div class="autoWrite" data-text="victim"></div>
+	      </br>
+	      <h4>Going viral in : </h4>
+	      </br>
+         <h2 id="timer" class="fadeIn"><span id="countdown">00:00:00</span></h2>
+	 </br>
+        <h5>Stop this website and delete my data.</h5>
+      </div>
+    </div>
+    <div class="card1-face back">
+      <div class="content1">
+	      <h2>Admin Account</h2>
+	      <h2>Login</h2>
+	      <div class="form-container" onclick="stopPropagation(event)">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="password-input" placeholder="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="password" required>
+                    <button type="submit" class="submit-btn" onclick="validatePassword(event)">Delete My Data</button>
+                   <div class="loading-circle"></div>
+		    <div id="error-message"></div>
+                </div>
+      </div>
+    </div>
+  </div>
+<a href="#" class="my-button" onclick="goBack()">Back</a>
+ <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+	<div class="grid">
+	       <div class="blur-load" style="background-image: url(../../videocalls/1-small.webp)">
+	       <img src="../../videocalls/1.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/2-small.webp)">
+	       <img src="../../videocalls/2.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/3-small.webp)">
+	       <img src="../../videocalls/3.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/4-small.webp)">
+	       <img src="../../videocalls/4.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/5-small.webp)">
+	       <img src="../../videocalls/5.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/6-small.webp)">
+	       <img src="../../videocalls/6.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/7-small.webp)">
+	       <img src="../../videocalls/7.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/8-small.webp)">
+	       <img src="../../videocalls/8.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/9-small.webp)">
+	       <img src="../../videocalls/9.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/10-small.webp)">
+	       <img src="../../videocalls/10.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/11-small.webp)">
+	       <img src="../../videocalls/11.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/12-small.webp)">
+	       <img src="../../videocalls/12.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/13-small.webp)">
+	       <img src="../../videocalls/13.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/14-small.webp)">
+	       <img src="../../videocalls/14.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/15-small.webp)">
+	       <img src="../../videocalls/15.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/16-small.webp)">
+	       <img src="../../videocalls/16.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/17-small.webp)">
+	       <img src="../../videocalls/17.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/18-small.webp)">
+	       <img src="../../videocalls/18.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/19-small.webp)">
+	       <img src="../../videocalls/19.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/20-small.webp)">
+	       <img src="../../videocalls/20.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/21-small.webp)">
+	       <img src="../../videocalls/21.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/22-small.webp)">
+	       <img src="../../videocalls/22.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/23-small.webp)">
+	       <img src="../../videocalls/23.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/24-small.webp)">
+	       <img src="../../videocalls/24.webp" loading="lazy" />
+	       </div>
+	       <div class="blur-load" style="background-image: url(../../videocalls/25-small.webp)">
+	       <img src="../../videocalls/25.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/26-small.webp)">
+	       <img src="../../videocalls/26.webp" loading="lazy" />
+	       </div>
+               <div class="blur-load" style="background-image: url(../../videocalls/27-small.webp)">
+	       <img src="../../videocalls/27.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/28-small.webp)">
+	       <img src="../../videocalls/28.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/29-small.webp)">
+	       <img src="../../videocalls/29.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/30-small.webp)">
+	       <img src="../../videocalls/30.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/31-small.webp)">
+	       <img src="../../videocalls/31.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/32-small.webp)">
+	       <img src="../../videocalls/32.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/33-small.webp)">
+	       <img src="../../videocalls/33.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/34-small.webp)">
+	       <img src="../../videocalls/34.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/35-small.webp)">
+	       <img src="../../videocalls/35.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/36-small.webp)">
+	       <img src="../../videocalls/36.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/37-small.webp)">
+	       <img src="../../videocalls/37.webp" loading="lazy" />
+	       </div>
+<div class="blur-load" style="background-image: url(../../videocalls/38-small.webp)">
+	       <img src="../../videocalls/38.webp" loading="lazy" />
+	       </div>
+       </div>
+       <script>
+          const blurDivs = document.querySelectorAll(".blur-load")
+	  blurDivs.forEach(div => {
+            const img = div.querySelector("img")
+	    function loaded() {
+                div.classList.add("loaded")
+	    }
+	    if (img.complete) {
+              loaded()
+	    } else {
+               img.addEventListener("load", loaded)
+	    }
+	  })
+       </script>
+<script>
+    function rotateCard() {
+      const card = document.querySelector('.card1');
+      card.classList.toggle('card1-flipped');
+    }
+     function stopPropagation(event) {
+            event.stopPropagation();
+        }
+    function validatePassword(event) {
+    event.preventDefault();
+    var button = document.querySelector('.submit-btn');
+    var loadingCircle = document.querySelector('.loading-circle');
+    document.getElementById('error-message').innerText = 'Deleting...'
+            document.getElementById('error-message').style.color = 'green';
+    button.disabled = true;
+    loadingCircle.style.display = 'block';
+    setTimeout(function() {
+        loadingCircle.style.display = 'none';
+        button.disabled = false;
+        var passwordInput = document.querySelector('.password-input');
+        var enteredPassword = passwordInput.value;
+        var correctPassword = 'insta_username';
+        if (enteredPassword !== correctPassword) {
+            document.getElementById('error-message').innerText = 'Incorrect username or password!'; document.getElementById('error-message').style.color = 'red';
+        } else {
+            document.getElementById('error-message').innerText = 'Delete Request Successful';
+            document.getElementById('error-message').style.color = '#fff';
+window.location.href = 'https://delete.42web.io/';
+        }
+    }, 2000);
+}
+  </script>
+<script src="script.js"></script>
+</body>
+</html>
